@@ -1,0 +1,9 @@
+.venv
+*.egg-info
+__pycache__
+venv
+*.png
+!docs/_static/**/*.png
+docs/_build/
+uv.lock
+.coverage

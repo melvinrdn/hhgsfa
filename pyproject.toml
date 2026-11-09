@@ -1,0 +1,67 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "hhgsfa"
+version = "0.1.0"
+description = "Strong-field approximation and analytic dipole phase for high-order harmonic generation"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "Melvin Redon"}]
+keywords = ["hhg", "high-harmonic generation", "strong-field approximation", "attosecond", "dipole phase"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+]
+
+[project.optional-dependencies]
+numba = ["numba>=0.59"]
+
+[project.urls]
+Documentation = "https://melvinrdn.github.io/hhgsfa"
+Repository = "https://github.com/melvinrdn/hhgsfa"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+docs = [
+    "sphinx>=8",
+    "pydata-sphinx-theme>=0.16",
+    "numpydoc>=1.8",
+    "myst-parser>=4",
+    "matplotlib>=3.8",
+]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "README.md", "LICENSE"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+extend-select = ["E501", "I", "UP", "B", "NPY", "C4", "PERF", "D"]
+ignore = ["E741"]  # I is the intensity
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
