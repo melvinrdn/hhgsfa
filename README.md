@@ -42,6 +42,20 @@ to 10⁻⁷.
 
 Details in the [benchmark](https://melvinrdn.github.io/hhgsfa/benchmark.html).
 
+## Citation
+
+If you use hhgsfa in published work, please cite it, with the version you used:
+
+```bibtex
+@software{hhgsfa,
+  author  = {Redon, Melvin},
+  title   = {hhgsfa: strong-field approximation and analytic dipole phase for high-order harmonic generation},
+  year    = {2026},
+  version = {0.1.0},
+  url     = {https://github.com/melvinrdn/hhgsfa},
+}
+```
+
 ## License
 
 MIT
